@@ -9,6 +9,30 @@ const speakers = [
     status: "Featured Speaker",
     photo: "/najil-umair.jpg",
   },
+  {
+    name: "ABHINAND BINU",
+    role: "Speaker Role", // Update with actual role
+    status: "Speaker",
+    photo: "/abhinand-binu.jpg",
+  },
+  {
+    name: "Speaker 2",
+    role: "Role 2",
+    status: "Speaker",
+    photo: "/speaker2.jpg",
+  },
+  {
+    name: "Speaker 3",
+    role: "Role 3",
+    status: "Speaker",
+    photo: "/speaker3.jpg",
+  },
+  {
+    name: "Speaker 4",
+    role: "Role 4",
+    status: "Speaker",
+    photo: "/speaker4.jpg",
+  },
 ];
 
 export const SpeakersSection = () => {
