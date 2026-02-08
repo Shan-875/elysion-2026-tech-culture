@@ -1,0 +1,341 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+@font-face {
+  font-family: 'Roxborough CF';
+  src: url("./assets/fonts/Roxborough CF.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Elysion palette: #561420 #0E0E10 #CBA24B #36172F #F3C45E – no off-white */
+    /* Background: warm pale gold tint (not white) */
+    --background: 42 35% 96%; /* warm pale gold #FBF7EF */
+    --foreground: 240 4% 6%; /* #0E0E10 near black */
+
+    --card: 42 35% 96%;
+    --card-foreground: 240 4% 6%;
+
+    --popover: 42 35% 96%;
+    --popover-foreground: 240 4% 6%;
+
+    /* Primary: maroon #561420 */
+    --primary: 347 67% 21%;
+    --primary-foreground: 43 45% 95%; /* warm light (gold tint), not white */
+
+    /* Secondary: gold #CBA24B */
+    --secondary: 41 52% 54%;
+    --secondary-foreground: 240 4% 6%;
+
+    --muted: 42 25% 91%;
+    --muted-foreground: 240 4% 35%;
+
+    /* Accent: brighter gold #F3C45E */
+    --accent: 43 85% 66%;
+    --accent-foreground: 240 4% 6%;
+
+    /* Plum #36172F */
+    --plum: 318 43% 15%;
+    --plum-foreground: 43 45% 95%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 41 30% 70%;
+    --input: 41 30% 80%;
+    --ring: 41 52% 54%;
+
+    --radius: 0.5rem;
+
+    /* Typography – hero uses local Roxborough CF */
+    --font-hero: 'Roxborough CF', serif;
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'Cormorant Garamond', serif;
+    --font-sans: 'Inter', sans-serif;
+
+    /* Gradients */
+    --gradient-gold: linear-gradient(135deg, hsl(41, 52%, 54%) 0%, hsl(43, 85%, 66%) 50%, hsl(41, 52%, 54%) 100%);
+    --gradient-burgundy: linear-gradient(180deg, hsl(347, 67%, 21%) 0%, hsl(318, 43%, 15%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(347, 67%, 21%) 0%, hsl(347, 67%, 16%) 60%, hsl(318, 43%, 12%) 100%);
+    --gradient-shine: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.3), transparent);
+
+    /* Shadows */
+    --shadow-gold: 0 4px 30px -5px hsla(41, 52%, 54%, 0.4);
+    --shadow-elegant: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --shadow-card: 0 10px 40px -10px rgba(86, 20, 32, 0.2);
+
+    --sidebar-background: 42 35% 97%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 43 45% 95%;
+    --sidebar-accent: 42 30% 93%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 240 4% 6%; /* #0E0E10 */
+    --foreground: 43 45% 95%;
+
+    --card: 347 67% 15%;
+    --card-foreground: 43 45% 95%;
+
+    --popover: 240 4% 10%;
+    --popover-foreground: 43 45% 95%;
+
+    --primary: 41 52% 54%;
+    --primary-foreground: 240 4% 6%;
+
+    --secondary: 347 67% 21%;
+    --secondary-foreground: 43 45% 95%;
+
+    --muted: 240 4% 15%;
+    --muted-foreground: 43 30% 75%;
+
+    --accent: 43 85% 66%;
+    --accent-foreground: 240 4% 6%;
+
+    --border: 240 4% 20%;
+    --input: 240 4% 20%;
+    --ring: 41 52% 54%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-body);
+  }
+
+  ::selection {
+    background: hsl(41, 52%, 54% / 0.25);
+    color: inherit;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply font-medium tracking-wide;
+  }
+}
+
+@layer utilities {
+  .font-hero {
+    font-family: var(--font-hero);
+  }
+
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-body {
+    font-family: var(--font-body);
+  }
+
+  .font-sans {
+    font-family: var(--font-sans);
+  }
+
+  .text-gradient-gold {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-gradient-gold {
+    background: var(--gradient-gold);
+  }
+
+  .bg-gradient-burgundy {
+    background: var(--gradient-burgundy);
+  }
+
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .shadow-gold {
+    box-shadow: var(--shadow-gold);
+  }
+
+  .shadow-elegant {
+    box-shadow: var(--shadow-elegant);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  /* Premium underline animation */
+  .underline-gold {
+    position: relative;
+  }
+
+  .underline-gold::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gradient-gold);
+    transition: width 0.3s ease;
+  }
+
+  .underline-gold:hover::after {
+    width: 100%;
+  }
+
+  /* Shimmer effect */
+  @keyframes shimmer {
+    0% {
+      background-position: -200% center;
+    }
+    100% {
+      background-position: 200% center;
+    }
+  }
+
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      hsl(41, 52%, 54%) 0%,
+      hsl(43, 85%, 70%) 50%,
+      hsl(41, 52%, 54%) 100%
+    );
+    background-size: 200% auto;
+    animation: shimmer 3s ease-in-out infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Float animation */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  /* Glow effect */
+  .glow-gold {
+    box-shadow: 0 0 20px hsla(41, 52%, 54%, 0.5),
+                0 0 40px hsla(41, 52%, 54%, 0.3),
+                0 0 60px hsla(41, 52%, 54%, 0.1);
+  }
+
+  /* Premium border */
+  .border-gold-gradient {
+    border: 2px solid transparent;
+    background: linear-gradient(var(--background), var(--background)) padding-box,
+                var(--gradient-gold) border-box;
+  }
+
+  /* Premium golden logo effect - transforms white PNGs to golden gradient */
+  .logo-gold-premium {
+    position: relative;
+    filter: drop-shadow(0 4px 20px rgba(203, 162, 75, 0.4));
+  }
+  
+  .logo-gold-premium::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #CBA24B 0%, #F3C45E 50%, #CBA24B 100%);
+    mix-blend-mode: multiply;
+    opacity: 0.85;
+    pointer-events: none;
+  }
+
+  .logo-gold-premium:hover {
+    filter: drop-shadow(0 6px 30px rgba(243, 196, 94, 0.6));
+  }
+
+  /* Sponsor logo golden effect - simpler for smaller logos */
+  .sponsor-gold {
+    filter: brightness(0) saturate(100%) invert(72%) sepia(42%) saturate(700%) hue-rotate(8deg) drop-shadow(0 2px 8px rgba(203, 162, 75, 0.3));
+    transition: filter 0.3s ease;
+  }
+
+  .sponsor-gold:hover {
+    filter: brightness(0) saturate(100%) invert(78%) sepia(55%) saturate(900%) hue-rotate(8deg) drop-shadow(0 4px 16px rgba(243, 196, 94, 0.5));
+  }
+
+  /* Black silhouette to light/white for dark images on light backgrounds */
+  .image-silhouette-light {
+    filter: brightness(0) invert(1);
+  }
+
+  /* Transparent PNG couple dance: refined outline + soft shadow */
+  .couple-dance-silhouette {
+    filter:
+      drop-shadow(0 0 2px rgba(203, 162, 75, 0.5))
+      drop-shadow(0 0 8px rgba(203, 162, 75, 0.2))
+      drop-shadow(0 4px 16px rgba(86, 20, 32, 0.2))
+      drop-shadow(0 12px 32px rgba(86, 20, 32, 0.25))
+      drop-shadow(0 24px 48px -12px rgba(0, 0, 0, 0.2));
+  }
+
+  /* Soft radial glow behind about section couple image */
+  .bg-gradient-radial-couple {
+    background: radial-gradient(
+      ellipse 80% 70% at 50% 50%,
+      rgba(203, 162, 75, 0.2) 0%,
+      rgba(86, 20, 32, 0.12) 45%,
+      transparent 70%
+    );
+  }
+
+  /* Themed backgrounds – royal tech romance / velvet / aged paper */
+  .bg-theme-velvet {
+    background: linear-gradient(160deg, #3d0f18 0%, #561420 35%, #36172F 100%);
+  }
+  .bg-theme-about {
+    background: linear-gradient(180deg, #F8F2E8 0%, #F0E6D8 50%, #EDE0D0 100%);
+    position: relative;
+  }
+  .bg-theme-about::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(ellipse at 20% 20%, rgba(203, 162, 75, 0.06) 0%, transparent 50%),
+                      radial-gradient(ellipse at 80% 80%, rgba(86, 20, 32, 0.04) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .bg-theme-gallery {
+    background: linear-gradient(180deg, #0E0E10 0%, #1a0f12 40%, #0E0E10 100%);
+    position: relative;
+  }
+  .bg-theme-gallery::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(ellipse at 50% 0%, rgba(203, 162, 75, 0.08) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .card-frame-gold {
+    box-shadow: inset 0 0 0 1px rgba(203, 162, 75, 0.25), 0 8px 32px -8px rgba(0, 0, 0, 0.4);
+  }
+}
